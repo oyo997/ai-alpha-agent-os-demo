@@ -1,0 +1,1612 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>
+AI Alpha Agent · Decision Proof Explorer
+</title>
+
+<style>
+
+* {
+box-sizing:border-box;
+}
+
+body {
+margin:0;
+font-family:Arial,sans-serif;
+background:#070a0f;
+color:#edf2f8;
+}
+
+.layout {
+display:grid;
+grid-template-columns:270px 1fr;
+min-height:100vh;
+}
+
+.sidebar {
+border-right:1px solid #202a37;
+padding:24px 16px;
+background:#0a0e14;
+position:sticky;
+top:0;
+height:100vh;
+overflow:auto;
+}
+
+.brand {
+font-size:21px;
+font-weight:bold;
+margin-bottom:4px;
+}
+
+.sub {
+font-size:12px;
+color:#7f8b9c;
+margin-bottom:24px;
+}
+
+.symbol-btn {
+width:100%;
+border:1px solid #263140;
+background:#0d121a;
+color:white;
+padding:12px;
+margin-bottom:8px;
+border-radius:10px;
+text-align:left;
+cursor:pointer;
+display:flex;
+flex-direction:column;
+gap:4px;
+}
+
+.symbol-btn:hover {
+border-color:#65758b;
+}
+
+.symbol-btn span {
+font-size:11px;
+color:#8996a8;
+}
+
+.content {
+padding:36px;
+max-width:1100px;
+}
+
+.symbol-section {
+display:none;
+}
+
+.symbol-section.active {
+display:block;
+}
+
+.hero-row {
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #222c39;
+padding-bottom:22px;
+}
+
+.eyebrow {
+font-size:11px;
+color:#77869a;
+letter-spacing:1px;
+}
+
+h2 {
+font-size:38px;
+margin:5px 0;
+}
+
+.state {
+display:inline-block;
+padding:6px 10px;
+border:1px solid #344356;
+border-radius:20px;
+font-size:12px;
+}
+
+.conviction-box {
+text-align:right;
+}
+
+.label {
+font-size:11px;
+color:#7f8d9f;
+}
+
+.big {
+font-size:42px;
+font-weight:bold;
+}
+
+.grid {
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(170px,1fr));
+gap:12px;
+margin-top:20px;
+}
+
+.card {
+border:1px solid #263140;
+background:#0d121a;
+padding:17px;
+border-radius:13px;
+}
+
+.metric {
+font-size:24px;
+font-weight:bold;
+margin-top:7px;
+}
+
+.panel {
+margin-top:22px;
+border:1px solid #263140;
+background:#0d121a;
+padding:20px;
+border-radius:14px;
+}
+
+.panel h3 {
+margin-top:0;
+}
+
+.panel p {
+line-height:1.6;
+color:#c7d0dc;
+}
+
+.kv {
+display:flex;
+justify-content:space-between;
+gap:20px;
+padding:10px 0;
+border-bottom:1px solid #202a37;
+}
+
+.kv:last-child {
+border-bottom:none;
+}
+
+.kv span {
+color:#8795a7;
+}
+
+code {
+word-break:break-all;
+}
+
+.outcome-tag {
+display:inline-block;
+padding:7px 11px;
+border:1px solid #3b4a5e;
+border-radius:18px;
+font-size:12px;
+}
+
+.outcome-grid {
+margin-top:14px;
+}
+
+.notice {
+padding:14px;
+border:1px solid #4a4127;
+border-radius:12px;
+color:#d5c991;
+margin-bottom:22px;
+}
+
+@media(max-width:760px) {
+
+.layout {
+grid-template-columns:1fr;
+}
+
+.sidebar {
+position:relative;
+height:auto;
+border-right:none;
+border-bottom:1px solid #202a37;
+}
+
+.content {
+padding:20px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="layout">
+
+<div class="sidebar">
+
+<div class="brand">
+AI Alpha Agent OS
+</div>
+
+<div class="sub">
+Decision Proof Explorer V1<br>
+决策证明浏览器
+</div>
+
+
+            <button
+              class="symbol-btn"
+              onclick="showSymbol('ASTERUSDT')">
+              <b>ASTERUSDT</b>
+              <span>WATCH</span>
+              <span>Conv 50.46</span>
+            </button>
+            
+            <button
+              class="symbol-btn"
+              onclick="showSymbol('ADAUSDT')">
+              <b>ADAUSDT</b>
+              <span>WATCH</span>
+              <span>Conv 42.32</span>
+            </button>
+            
+            <button
+              class="symbol-btn"
+              onclick="showSymbol('BNBUSDT')">
+              <b>BNBUSDT</b>
+              <span>WATCH</span>
+              <span>Conv 35.73</span>
+            </button>
+            
+            <button
+              class="symbol-btn"
+              onclick="showSymbol('SUIUSDT')">
+              <b>SUIUSDT</b>
+              <span>WATCH</span>
+              <span>Conv 34.69</span>
+            </button>
+            
+            <button
+              class="symbol-btn"
+              onclick="showSymbol('BANKUSDT')">
+              <b>BANKUSDT</b>
+              <span>WATCH</span>
+              <span>Conv 25.53</span>
+            </button>
+            
+            <button
+              class="symbol-btn"
+              onclick="showSymbol('PEPEUSDT')">
+              <b>PEPEUSDT</b>
+              <span>WATCH</span>
+              <span>Conv 23.87</span>
+            </button>
+            
+
+</div>
+
+<div class="content">
+
+<div class="notice">
+
+Every decision shown here is separated from its later outcome. /
+这里把“当时的判断”和“后来发生的结果”明确分开。
+
+No guaranteed-profit claim. /
+不宣称保证盈利。
+
+</div>
+
+
+<section
+  class="symbol-section"
+  id="symbol-ASTERUSDT">
+
+<div class="hero-row">
+
+<div>
+<div class="eyebrow">
+DECISION PROOF / 决策证明
+</div>
+
+<h2>ASTERUSDT</h2>
+
+<div class="state">
+WATCH
+</div>
+</div>
+
+<div class="conviction-box">
+<div class="label">
+AGENT CONVICTION
+</div>
+<div class="big">
+50.46
+</div>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+<div class="label">
+Momentum / 动量
+</div>
+<div class="metric">
+-
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Continuation / 延续
+</div>
+<div class="metric">
+34.51
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Smart Money / 聪明钱
+</div>
+<div class="metric">
+57.37
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Binance Flow / 资金流
+</div>
+<div class="metric">
+64.01
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Agent Thesis / Agent判断理由
+</h3>
+
+<p>
+Directional evidence: ALPHA_BINANCE_FLOW=64.0, ALPHA_SMART_MONEY=57.4 | Weakest: ALPHA_CONTINUATION=34.5
+</p >
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Proof Record / 证明记录
+</h3>
+
+<div class="kv">
+<span>Timestamp / 时间</span>
+<b>2026-09-28T04:10:20.358916+00:00</b>
+</div>
+
+<div class="kv">
+<span>Proof Hash / 证明哈希</span>
+<code title="8e4d132dd7196ee1fc0b67d5006b6aa313426cbd04c0bcd871927eacfa3fad3d">
+8e4d132dd719...acfa3fad3d
+</code>
+</div>
+
+<div class="kv">
+<span>Previous Hash / 上一哈希</span>
+<code>
+9d1cf7797dad...aa8500bea2
+</code>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Forward Outcome / 前向结果
+</h3>
+
+<div class="outcome-tag">
+FALSE_POSITIVE
+</div>
+
+<div class="grid outcome-grid">
+
+<div class="card">
+<div class="label">30m</div>
+<div class="metric">
+-2.697%
+</div>
+</div>
+
+<div class="card">
+<div class="label">60m</div>
+<div class="metric">
+-2.697%
+</div>
+</div>
+
+<div class="card">
+<div class="label">180m</div>
+<div class="metric">
+-2.697%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MFE</div>
+<div class="metric">
++0.490%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MAE</div>
+<div class="metric">
+-2.697%
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Counterfactual Audit /
+反事实审计
+</h3>
+
+<div class="kv">
+<span>Audited / 是否审计</span>
+<b>
+YES
+</b>
+</div>
+
+<div class="kv">
+<span>Decision / 当时处理</span>
+<b>
+NOT_PROMOTED
+</b>
+</div>
+
+<div class="kv">
+<span>180m Return / 180分钟收益</span>
+<b>
+-
+</b>
+</div>
+
+<div class="kv">
+<span>Missed MFE / 错过最大上涨</span>
+<b>
++0.000%
+</b>
+</div>
+
+<div class="kv">
+<span>Audit Label / 审计标签</span>
+<b>
+-
+</b>
+</div>
+
+</div>
+
+</section>
+
+<section
+  class="symbol-section"
+  id="symbol-ADAUSDT">
+
+<div class="hero-row">
+
+<div>
+<div class="eyebrow">
+DECISION PROOF / 决策证明
+</div>
+
+<h2>ADAUSDT</h2>
+
+<div class="state">
+WATCH
+</div>
+</div>
+
+<div class="conviction-box">
+<div class="label">
+AGENT CONVICTION
+</div>
+<div class="big">
+42.32
+</div>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+<div class="label">
+Momentum / 动量
+</div>
+<div class="metric">
+-
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Continuation / 延续
+</div>
+<div class="metric">
+33.87
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Smart Money / 聪明钱
+</div>
+<div class="metric">
+-
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Binance Flow / 资金流
+</div>
+<div class="metric">
+55.0
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Agent Thesis / Agent判断理由
+</h3>
+
+<p>
+Directional evidence: ALPHA_BINANCE_FLOW=55.0, ALPHA_CONTINUATION=33.9 | Weakest: ALPHA_CONTINUATION=33.9
+</p >
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Proof Record / 证明记录
+</h3>
+
+<div class="kv">
+<span>Timestamp / 时间</span>
+<b>2026-09-28T04:10:20.358916+00:00</b>
+</div>
+
+<div class="kv">
+<span>Proof Hash / 证明哈希</span>
+<code title="8e4d132dd7196ee1fc0b67d5006b6aa313426cbd04c0bcd871927eacfa3fad3d">
+8e4d132dd719...acfa3fad3d
+</code>
+</div>
+
+<div class="kv">
+<span>Previous Hash / 上一哈希</span>
+<code>
+9d1cf7797dad...aa8500bea2
+</code>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Forward Outcome / 前向结果
+</h3>
+
+<div class="outcome-tag">
+MIXED_OUTCOME
+</div>
+
+<div class="grid outcome-grid">
+
+<div class="card">
+<div class="label">30m</div>
+<div class="metric">
+-1.214%
+</div>
+</div>
+
+<div class="card">
+<div class="label">60m</div>
+<div class="metric">
+-1.214%
+</div>
+</div>
+
+<div class="card">
+<div class="label">180m</div>
+<div class="metric">
+-1.214%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MFE</div>
+<div class="metric">
++0.548%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MAE</div>
+<div class="metric">
+-1.214%
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Counterfactual Audit /
+反事实审计
+</h3>
+
+<div class="kv">
+<span>Audited / 是否审计</span>
+<b>
+YES
+</b>
+</div>
+
+<div class="kv">
+<span>Decision / 当时处理</span>
+<b>
+NOT_PROMOTED
+</b>
+</div>
+
+<div class="kv">
+<span>180m Return / 180分钟收益</span>
+<b>
+-
+</b>
+</div>
+
+<div class="kv">
+<span>Missed MFE / 错过最大上涨</span>
+<b>
++0.000%
+</b>
+</div>
+
+<div class="kv">
+<span>Audit Label / 审计标签</span>
+<b>
+-
+</b>
+</div>
+
+</div>
+
+</section>
+
+<section
+  class="symbol-section"
+  id="symbol-BNBUSDT">
+
+<div class="hero-row">
+
+<div>
+<div class="eyebrow">
+DECISION PROOF / 决策证明
+</div>
+
+<h2>BNBUSDT</h2>
+
+<div class="state">
+WATCH
+</div>
+</div>
+
+<div class="conviction-box">
+<div class="label">
+AGENT CONVICTION
+</div>
+<div class="big">
+35.73
+</div>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+<div class="label">
+Momentum / 动量
+</div>
+<div class="metric">
+48.22
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Continuation / 延续
+</div>
+<div class="metric">
+19.96
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Smart Money / 聪明钱
+</div>
+<div class="metric">
+62.62
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Binance Flow / 资金流
+</div>
+<div class="metric">
+6.58
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Agent Thesis / Agent判断理由
+</h3>
+
+<p>
+Directional evidence: ALPHA_SMART_MONEY=62.6, ALPHA_MOMENTUM=48.2 | Weakest: ALPHA_BINANCE_FLOW=6.6
+</p >
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Proof Record / 证明记录
+</h3>
+
+<div class="kv">
+<span>Timestamp / 时间</span>
+<b>2026-09-28T04:10:20.358916+00:00</b>
+</div>
+
+<div class="kv">
+<span>Proof Hash / 证明哈希</span>
+<code title="8e4d132dd7196ee1fc0b67d5006b6aa313426cbd04c0bcd871927eacfa3fad3d">
+8e4d132dd719...acfa3fad3d
+</code>
+</div>
+
+<div class="kv">
+<span>Previous Hash / 上一哈希</span>
+<code>
+9d1cf7797dad...aa8500bea2
+</code>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Forward Outcome / 前向结果
+</h3>
+
+<div class="outcome-tag">
+MIXED_OUTCOME
+</div>
+
+<div class="grid outcome-grid">
+
+<div class="card">
+<div class="label">30m</div>
+<div class="metric">
+-0.842%
+</div>
+</div>
+
+<div class="card">
+<div class="label">60m</div>
+<div class="metric">
+-0.842%
+</div>
+</div>
+
+<div class="card">
+<div class="label">180m</div>
+<div class="metric">
+-0.842%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MFE</div>
+<div class="metric">
++0.297%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MAE</div>
+<div class="metric">
+-0.842%
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Counterfactual Audit /
+反事实审计
+</h3>
+
+<div class="kv">
+<span>Audited / 是否审计</span>
+<b>
+YES
+</b>
+</div>
+
+<div class="kv">
+<span>Decision / 当时处理</span>
+<b>
+NOT_PROMOTED
+</b>
+</div>
+
+<div class="kv">
+<span>180m Return / 180分钟收益</span>
+<b>
+-
+</b>
+</div>
+
+<div class="kv">
+<span>Missed MFE / 错过最大上涨</span>
+<b>
++0.000%
+</b>
+</div>
+
+<div class="kv">
+<span>Audit Label / 审计标签</span>
+<b>
+-
+</b>
+</div>
+
+</div>
+
+</section>
+
+<section
+  class="symbol-section"
+  id="symbol-SUIUSDT">
+
+<div class="hero-row">
+
+<div>
+<div class="eyebrow">
+DECISION PROOF / 决策证明
+</div>
+
+<h2>SUIUSDT</h2>
+
+<div class="state">
+WATCH
+</div>
+</div>
+
+<div class="conviction-box">
+<div class="label">
+AGENT CONVICTION
+</div>
+<div class="big">
+34.69
+</div>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+<div class="label">
+Momentum / 动量
+</div>
+<div class="metric">
+41.21
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Continuation / 延续
+</div>
+<div class="metric">
+35.17
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Smart Money / 聪明钱
+</div>
+<div class="metric">
+-
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Binance Flow / 资金流
+</div>
+<div class="metric">
+27.44
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Agent Thesis / Agent判断理由
+</h3>
+
+<p>
+Directional evidence: ALPHA_MOMENTUM=41.2, ALPHA_CONTINUATION=35.2 | Weakest: ALPHA_BINANCE_FLOW=27.4
+</p >
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Proof Record / 证明记录
+</h3>
+
+<div class="kv">
+<span>Timestamp / 时间</span>
+<b>2026-09-28T04:10:20.358916+00:00</b>
+</div>
+
+<div class="kv">
+<span>Proof Hash / 证明哈希</span>
+<code title="8e4d132dd7196ee1fc0b67d5006b6aa313426cbd04c0bcd871927eacfa3fad3d">
+8e4d132dd719...acfa3fad3d
+</code>
+</div>
+
+<div class="kv">
+<span>Previous Hash / 上一哈希</span>
+<code>
+9d1cf7797dad...aa8500bea2
+</code>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Forward Outcome / 前向结果
+</h3>
+
+<div class="outcome-tag">
+MIXED_OUTCOME
+</div>
+
+<div class="grid outcome-grid">
+
+<div class="card">
+<div class="label">30m</div>
+<div class="metric">
+-0.305%
+</div>
+</div>
+
+<div class="card">
+<div class="label">60m</div>
+<div class="metric">
+-0.305%
+</div>
+</div>
+
+<div class="card">
+<div class="label">180m</div>
+<div class="metric">
+-0.305%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MFE</div>
+<div class="metric">
++1.162%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MAE</div>
+<div class="metric">
+-0.305%
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Counterfactual Audit /
+反事实审计
+</h3>
+
+<div class="kv">
+<span>Audited / 是否审计</span>
+<b>
+YES
+</b>
+</div>
+
+<div class="kv">
+<span>Decision / 当时处理</span>
+<b>
+NOT_PROMOTED
+</b>
+</div>
+
+<div class="kv">
+<span>180m Return / 180分钟收益</span>
+<b>
+-
+</b>
+</div>
+
+<div class="kv">
+<span>Missed MFE / 错过最大上涨</span>
+<b>
++0.024%
+</b>
+</div>
+
+<div class="kv">
+<span>Audit Label / 审计标签</span>
+<b>
+-
+</b>
+</div>
+
+</div>
+
+</section>
+
+<section
+  class="symbol-section"
+  id="symbol-BANKUSDT">
+
+<div class="hero-row">
+
+<div>
+<div class="eyebrow">
+DECISION PROOF / 决策证明
+</div>
+
+<h2>BANKUSDT</h2>
+
+<div class="state">
+WATCH
+</div>
+</div>
+
+<div class="conviction-box">
+<div class="label">
+AGENT CONVICTION
+</div>
+<div class="big">
+25.53
+</div>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+<div class="label">
+Momentum / 动量
+</div>
+<div class="metric">
+-
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Continuation / 延续
+</div>
+<div class="metric">
+18.21
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Smart Money / 聪明钱
+</div>
+<div class="metric">
+49.87
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Binance Flow / 资金流
+</div>
+<div class="metric">
+0.0
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Agent Thesis / Agent判断理由
+</h3>
+
+<p>
+Directional evidence: ALPHA_SMART_MONEY=49.9, ALPHA_CONTINUATION=18.2 | Weakest: ALPHA_BINANCE_FLOW=0.0 | Execution: LIQUIDITY_NOT_READY
+</p >
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Proof Record / 证明记录
+</h3>
+
+<div class="kv">
+<span>Timestamp / 时间</span>
+<b>2026-09-28T04:10:20.358916+00:00</b>
+</div>
+
+<div class="kv">
+<span>Proof Hash / 证明哈希</span>
+<code title="8e4d132dd7196ee1fc0b67d5006b6aa313426cbd04c0bcd871927eacfa3fad3d">
+8e4d132dd719...acfa3fad3d
+</code>
+</div>
+
+<div class="kv">
+<span>Previous Hash / 上一哈希</span>
+<code>
+9d1cf7797dad...aa8500bea2
+</code>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Forward Outcome / 前向结果
+</h3>
+
+<div class="outcome-tag">
+FALSE_POSITIVE
+</div>
+
+<div class="grid outcome-grid">
+
+<div class="card">
+<div class="label">30m</div>
+<div class="metric">
+-4.706%
+</div>
+</div>
+
+<div class="card">
+<div class="label">60m</div>
+<div class="metric">
+-4.706%
+</div>
+</div>
+
+<div class="card">
+<div class="label">180m</div>
+<div class="metric">
+-4.706%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MFE</div>
+<div class="metric">
++0.588%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MAE</div>
+<div class="metric">
+-4.706%
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Counterfactual Audit /
+反事实审计
+</h3>
+
+<div class="kv">
+<span>Audited / 是否审计</span>
+<b>
+YES
+</b>
+</div>
+
+<div class="kv">
+<span>Decision / 当时处理</span>
+<b>
+NOT_PROMOTED
+</b>
+</div>
+
+<div class="kv">
+<span>180m Return / 180分钟收益</span>
+<b>
+-
+</b>
+</div>
+
+<div class="kv">
+<span>Missed MFE / 错过最大上涨</span>
+<b>
++0.309%
+</b>
+</div>
+
+<div class="kv">
+<span>Audit Label / 审计标签</span>
+<b>
+-
+</b>
+</div>
+
+</div>
+
+</section>
+
+<section
+  class="symbol-section"
+  id="symbol-PEPEUSDT">
+
+<div class="hero-row">
+
+<div>
+<div class="eyebrow">
+DECISION PROOF / 决策证明
+</div>
+
+<h2>PEPEUSDT</h2>
+
+<div class="state">
+WATCH
+</div>
+</div>
+
+<div class="conviction-box">
+<div class="label">
+AGENT CONVICTION
+</div>
+<div class="big">
+23.87
+</div>
+</div>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+<div class="label">
+Momentum / 动量
+</div>
+<div class="metric">
+-
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Continuation / 延续
+</div>
+<div class="metric">
+15.54
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Smart Money / 聪明钱
+</div>
+<div class="metric">
+-
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Binance Flow / 资金流
+</div>
+<div class="metric">
+36.36
+</div>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Agent Thesis / Agent判断理由
+</h3>
+
+<p>
+Directional evidence: ALPHA_BINANCE_FLOW=36.4, ALPHA_CONTINUATION=15.5 | Weakest: ALPHA_CONTINUATION=15.5 | Execution: LIQUIDITY_NOT_READY
+</p >
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Proof Record / 证明记录
+</h3>
+
+<div class="kv">
+<span>Timestamp / 时间</span>
+<b>2026-09-28T04:10:20.358916+00:00</b>
+</div>
+
+<div class="kv">
+<span>Proof Hash / 证明哈希</span>
+<code title="8e4d132dd7196ee1fc0b67d5006b6aa313426cbd04c0bcd871927eacfa3fad3d">
+8e4d132dd719...acfa3fad3d
+</code>
+</div>
+
+<div class="kv">
+<span>Previous Hash / 上一哈希</span>
+<code>
+9d1cf7797dad...aa8500bea2
+</code>
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Forward Outcome / 前向结果
+</h3>
+
+<div class="outcome-tag">
+FALSE_POSITIVE
+</div>
+
+<div class="grid outcome-grid">
+
+<div class="card">
+<div class="label">30m</div>
+<div class="metric">
+-3.189%
+</div>
+</div>
+
+<div class="card">
+<div class="label">60m</div>
+<div class="metric">
+-3.189%
+</div>
+</div>
+
+<div class="card">
+<div class="label">180m</div>
+<div class="metric">
+-3.189%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MFE</div>
+<div class="metric">
++0.456%
+</div>
+</div>
+
+<div class="card">
+<div class="label">MAE</div>
+<div class="metric">
+-3.189%
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel">
+
+<h3>
+Counterfactual Audit /
+反事实审计
+</h3>
+
+<div class="kv">
+<span>Audited / 是否审计</span>
+<b>
+YES
+</b>
+</div>
+
+<div class="kv">
+<span>Decision / 当时处理</span>
+<b>
+NOT_PROMOTED
+</b>
+</div>
+
+<div class="kv">
+<span>180m Return / 180分钟收益</span>
+<b>
+-
+</b>
+</div>
+
+<div class="kv">
+<span>Missed MFE / 错过最大上涨</span>
+<b>
++0.000%
+</b>
+</div>
+
+<div class="kv">
+<span>Audit Label / 审计标签</span>
+<b>
+-
+</b>
+</div>
+
+</div>
+
+</section>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+function showSymbol(symbol) {
+
+document
+.querySelectorAll(".symbol-section")
+.forEach(x =>
+x.classList.remove("active"));
+
+const el =
+document.getElementById(
+"symbol-" + symbol
+);
+
+if (el) {
+el.classList.add("active");
+}
+
+}
+
+const first =
+document.querySelector(
+".symbol-section"
+);
+
+if (first) {
+first.classList.add("active");
+}
+
+</script>
+
+</body>
+</html>

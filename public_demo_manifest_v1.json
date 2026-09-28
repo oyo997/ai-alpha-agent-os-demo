@@ -1,0 +1,47 @@
+{
+  "model": "public_demo_manifest_v1",
+  "generated_at_utc": "2026-09-28T08:50:01.257521+00:00",
+  "published": [
+    {
+      "file": "research_terminal_v1.html",
+      "bytes": 9909,
+      "sha256": "6df0d084baf2435685e161c331dfe5f6d5692caf2393a4eec26ea26cae99fcd3"
+    },
+    {
+      "file": "decision_proof_explorer_v1.html",
+      "bytes": 21949,
+      "sha256": "b2cf5a24d97418eb90f6a3b9e6599f3d3eeed42a73821c39daac6409dda18483"
+    },
+    {
+      "file": "missed_opportunity_explorer_v1.html",
+      "bytes": 3747,
+      "sha256": "6c1fe0fce56adc4667e2c5a6e0fe4a2772dc4507daa2a87f80e15d416ad29e78"
+    },
+    {
+      "file": "investor_ready_control_center_v1.html",
+      "bytes": 7324,
+      "sha256": "94c7157348ed3637c6444756c6c2395bf6ed889d873c56404aa767f1f67ef74f"
+    },
+    {
+      "file": "public_agent_card_v1.json",
+      "bytes": 1809,
+      "sha256": "00636fc66a1dff1ed9d298085fcb39a7c4383b1f29c50fa26044f4a49a3c0a54"
+    },
+    {
+      "file": "alpha_agent_passport_v1.json",
+      "bytes": 5263,
+      "sha256": "ca0e52b8490cabde9b94294c83b366f7f2b311bf774f742f5bc22c087df0b09f"
+    },
+    {
+      "file": "index.html",
+      "bytes": 3154,
+      "sha256": "f662526ca6128c03c1ab69fd296c3874bc157229a421e6837c674fdc4f41324a"
+    }
+  ],
+  "blocked": [],
+  "missing": [],
+  "source_code_included": false,
+  "env_file_included": false,
+  "private_keys_included": false,
+  "automatic_live_execution": false
+}

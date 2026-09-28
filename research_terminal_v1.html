@@ -1,0 +1,551 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>AI Alpha Agent OS</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #080b10;
+    color: #e8edf5;
+}
+
+.wrap {
+    max-width: 1250px;
+    margin: auto;
+    padding: 32px;
+}
+
+.hero {
+    padding: 28px;
+    border: 1px solid #263140;
+    border-radius: 18px;
+    background: #0d121a;
+}
+
+h1 {
+    margin: 0 0 8px 0;
+    font-size: 34px;
+}
+
+.sub {
+    color: #9facbd;
+    font-size: 16px;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 7px 11px;
+    border: 1px solid #314156;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(210px,1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.card {
+    background: #0d121a;
+    border: 1px solid #263140;
+    border-radius: 15px;
+    padding: 18px;
+}
+
+.label {
+    color: #8794a7;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.value {
+    margin-top: 8px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.section {
+    margin-top: 34px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0d121a;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+th, td {
+    text-align: left;
+    padding: 13px;
+    border-bottom: 1px solid #202a37;
+}
+
+th {
+    color: #8f9caf;
+    font-size: 12px;
+}
+
+.symbol {
+    font-weight: bold;
+}
+
+.thesis {
+    padding: 18px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    background: #0d121a;
+    border: 1px solid #263140;
+}
+
+.thesis-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.thesis-state {
+    margin-top: 5px;
+    color: #9facbd;
+}
+
+.thesis-text {
+    margin-top: 12px;
+    line-height: 1.5;
+}
+
+.hash {
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.warning {
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #50452b;
+    border-radius: 12px;
+    color: #d8c996;
+}
+
+.footer {
+    margin: 35px 0;
+    color: #707d8e;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<div class="hero">
+
+<h1>
+AI Alpha Agent OS
+</h1>
+
+<div class="sub">
+Verifiable Self-Learning Alpha Agent /
+可验证自学习 Alpha 智能体
+</div>
+
+<div class="badge">
+Research + Forward Validation /
+研究与前向验证阶段
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="label">
+Proof Status / 证明状态
+</div>
+<div class="value">
+ACTIVE
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Latest Epoch / 最新周期
+</div>
+<div class="value">
+1
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Forward Episodes / 前向样本
+</div>
+<div class="value">
+12
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Forward Closed / 完成样本
+</div>
+<div class="value">
+6
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Counterfactual / 反事实样本
+</div>
+<div class="value">
+0
+</div>
+</div>
+
+<div class="card">
+<div class="label">
+Missed ≥5% / 错过5%+
+</div>
+<div class="value">
+0
+</div>
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+Current Agent Opportunities /
+当前 Agent 机会
+</h2>
+
+<table>
+
+<tr>
+<th>Symbol</th>
+<th>State</th>
+<th>Conviction</th>
+<th>Directional</th>
+<th>Smart Money</th>
+<th>Execution</th>
+</tr>
+
+
+            <tr>
+              <td class="symbol">ASTERUSDT</td>
+              <td>WATCH</td>
+              <td>50.46</td>
+              <td>50.46</td>
+              <td>False</td>
+              <td>True</td>
+            </tr>
+            
+            <tr>
+              <td class="symbol">ADAUSDT</td>
+              <td>WATCH</td>
+              <td>42.32</td>
+              <td>42.32</td>
+              <td>False</td>
+              <td>True</td>
+            </tr>
+            
+            <tr>
+              <td class="symbol">BNBUSDT</td>
+              <td>WATCH</td>
+              <td>35.73</td>
+              <td>35.73</td>
+              <td>True</td>
+              <td>True</td>
+            </tr>
+            
+            <tr>
+              <td class="symbol">SUIUSDT</td>
+              <td>WATCH</td>
+              <td>34.69</td>
+              <td>34.69</td>
+              <td>False</td>
+              <td>True</td>
+            </tr>
+            
+            <tr>
+              <td class="symbol">BANKUSDT</td>
+              <td>WATCH</td>
+              <td>25.53</td>
+              <td>25.53</td>
+              <td>False</td>
+              <td>False</td>
+            </tr>
+            
+            <tr>
+              <td class="symbol">PEPEUSDT</td>
+              <td>WATCH</td>
+              <td>23.87</td>
+              <td>23.87</td>
+              <td>False</td>
+              <td>False</td>
+            </tr>
+            
+
+</table>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+Agent Thesis /
+Agent 判断逻辑
+</h2>
+
+
+            <div class="thesis">
+              <div class="thesis-title">
+                ASTERUSDT
+              </div>
+
+              <div class="thesis-state">
+                WATCH
+                · Conviction 50.46
+              </div>
+
+              <div class="thesis-text">
+                Directional evidence: ALPHA_BINANCE_FLOW=64.0, ALPHA_SMART_MONEY=57.4 | Weakest: ALPHA_CONTINUATION=34.5
+              </div>
+            </div>
+            
+            <div class="thesis">
+              <div class="thesis-title">
+                ADAUSDT
+              </div>
+
+              <div class="thesis-state">
+                WATCH
+                · Conviction 42.32
+              </div>
+
+              <div class="thesis-text">
+                Directional evidence: ALPHA_BINANCE_FLOW=55.0, ALPHA_CONTINUATION=33.9 | Weakest: ALPHA_CONTINUATION=33.9
+              </div>
+            </div>
+            
+            <div class="thesis">
+              <div class="thesis-title">
+                BNBUSDT
+              </div>
+
+              <div class="thesis-state">
+                WATCH
+                · Conviction 35.73
+              </div>
+
+              <div class="thesis-text">
+                Directional evidence: ALPHA_SMART_MONEY=62.6, ALPHA_MOMENTUM=48.2 | Weakest: ALPHA_BINANCE_FLOW=6.6
+              </div>
+            </div>
+            
+            <div class="thesis">
+              <div class="thesis-title">
+                SUIUSDT
+              </div>
+
+              <div class="thesis-state">
+                WATCH
+                · Conviction 34.69
+              </div>
+
+              <div class="thesis-text">
+                Directional evidence: ALPHA_MOMENTUM=41.2, ALPHA_CONTINUATION=35.2 | Weakest: ALPHA_BINANCE_FLOW=27.4
+              </div>
+            </div>
+            
+            <div class="thesis">
+              <div class="thesis-title">
+                BANKUSDT
+              </div>
+
+              <div class="thesis-state">
+                WATCH
+                · Conviction 25.53
+              </div>
+
+              <div class="thesis-text">
+                Directional evidence: ALPHA_SMART_MONEY=49.9, ALPHA_CONTINUATION=18.2 | Weakest: ALPHA_BINANCE_FLOW=0.0 | Execution: LIQUIDITY_NOT_READY
+              </div>
+            </div>
+            
+
+</div>
+
+
+<div class="section">
+
+<h2>
+Alpha Evidence /
+Alpha 证据
+</h2>
+
+<table>
+
+<tr>
+<th>Alpha</th>
+<th>Evidence Level</th>
+<th>Strong N</th>
+<th>Reputation</th>
+</tr>
+
+
+            <tr>
+              <td>ALPHA_MOMENTUM</td>
+              <td>UNRATED</td>
+              <td>0</td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>ALPHA_CONTINUATION</td>
+              <td>UNRATED</td>
+              <td>0</td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>ALPHA_SMART_MONEY</td>
+              <td>UNRATED</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            
+            <tr>
+              <td>ALPHA_BINANCE_FLOW</td>
+              <td>UNRATED</td>
+              <td>1</td>
+              <td>-</td>
+            </tr>
+            
+
+</table>
+
+</div>
+
+
+<div class="section">
+
+<h2>
+Proof /
+证明
+</h2>
+
+<div class="card">
+
+<div class="label">
+Latest Epoch Hash /
+最新周期哈希
+</div>
+
+<div class="hash">
+4a58886792f5fe335793351c9b2a784a04c7f4265ac66a2aa74cb38319d929b4
+</div>
+
+<br>
+
+<div class="label">
+Bundle Root /
+证明包根哈希
+</div>
+
+<div class="hash">
+fd42a533b014be93c6d9eba0718803fef6c19d5db123f46fe0cf06f966dc318e
+</div>
+
+<br>
+
+<div class="label">
+BSC Anchor /
+BSC 链上锚定
+</div>
+
+<div>
+READY_FOR_MANUAL_ANCHOR_REVIEW
+</div>
+
+</div>
+
+</div>
+
+
+<div class="warning">
+
+Evidence warning / 证据提示：
+当前 Forward 样本仍处于早期阶段。
+UNRATED 不代表 Alpha 无效，
+只代表样本不足，系统拒绝制造虚假的精确评分。
+
+</div>
+
+
+<div class="section">
+
+<h2>
+Trust Policy /
+可信原则
+</h2>
+
+<div class="card">
+
+No guaranteed-profit claims /
+不宣称保证盈利
+
+<br><br>
+
+Forward decisions are timestamped /
+前向判断带时间记录
+
+<br><br>
+
+Rejected opportunities are audited /
+被拒绝机会同样接受审计
+
+<br><br>
+
+Alpha reputation must be earned /
+Alpha 声誉必须靠结果获得
+
+<br><br>
+
+Automatic live execution remains OFF /
+自动实盘执行保持关闭
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+Generated UTC:
+2026-09-28T05:01:11.403957+00:00
+
+<br>
+
+AI Alpha Agent OS · Public Research Terminal V1
+
+</div>
+
+</div>
+</body>
+</html>

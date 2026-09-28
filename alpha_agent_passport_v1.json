@@ -1,0 +1,188 @@
+{
+  "project": "AI Alpha Agent OS",
+  "passport_version": "v1",
+  "generated_at_utc": "2026-09-28T04:44:02.643217+00:00",
+  "positioning": "Verifiable Self-Learning Alpha Agent",
+  "proof_of_alpha": {
+    "latest_record_hash": "8e4d132dd7196ee1fc0b67d5006b6aa313426cbd04c0bcd871927eacfa3fad3d",
+    "previous_hash": "9d1cf7797dadcd1e8c520bdb64e9a2a3b42c9b688be543f916546caa8500bea2",
+    "timestamp_utc": "2026-09-28T04:10:20.358916+00:00"
+  },
+  "forward_learning": {
+    "total_episodes": 12,
+    "closed_180m": 6
+  },
+  "counterfactual_audit": {
+    "total_episodes": 6,
+    "closed": 0,
+    "missed_3pct_plus": 0,
+    "missed_5pct_plus": 0,
+    "missed_10pct_plus": 0
+  },
+  "alpha_reputation": {
+    "ALPHA_MOMENTUM": {
+      "evidence_level": "UNRATED",
+      "available_forward_n": 2,
+      "strong_signal_n": 0,
+      "strong_signal_180m": {
+        "n": 0,
+        "avg": null,
+        "win_rate": null,
+        "profit_factor": null
+      },
+      "reputation_score": null,
+      "score_reason": "Numeric reputation disabled until evidence matures"
+    },
+    "ALPHA_CONTINUATION": {
+      "evidence_level": "UNRATED",
+      "available_forward_n": 6,
+      "strong_signal_n": 0,
+      "strong_signal_180m": {
+        "n": 0,
+        "avg": null,
+        "win_rate": null,
+        "profit_factor": null
+      },
+      "reputation_score": null,
+      "score_reason": "Numeric reputation disabled until evidence matures"
+    },
+    "ALPHA_SMART_MONEY": {
+      "evidence_level": "UNRATED",
+      "available_forward_n": 3,
+      "strong_signal_n": 1,
+      "strong_signal_180m": {
+        "n": 1,
+        "avg": -0.8419564239347088,
+        "win_rate": 0.0,
+        "profit_factor": 0.0
+      },
+      "reputation_score": null,
+      "score_reason": "Numeric reputation disabled until evidence matures"
+    },
+    "ALPHA_BINANCE_FLOW": {
+      "evidence_level": "UNRATED",
+      "available_forward_n": 6,
+      "strong_signal_n": 1,
+      "strong_signal_180m": {
+        "n": 1,
+        "avg": -2.6971802206783746,
+        "win_rate": 0.0,
+        "profit_factor": 0.0
+      },
+      "reputation_score": null,
+      "score_reason": "Numeric reputation disabled until evidence matures"
+    }
+  },
+  "current_agent_states": [
+    {
+      "symbol": "ASTERUSDT",
+      "previous_state": "WATCH",
+      "state": "WATCH",
+      "conviction": 50.46,
+      "strong_streak": 0,
+      "micro_streak": 0,
+      "weak_streak": 0,
+      "observations": 15,
+      "peak_conviction": 50.46,
+      "smart_money_confirmed": false,
+      "execution_ok": true,
+      "flags": {
+        "building": true,
+        "strong": false,
+        "confirmed": false,
+        "micro_ready": false,
+        "weak": false
+      },
+      "updated_at_utc": "2026-09-28T04:38:18.695847+00:00"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "previous_state": "WATCH",
+      "state": "WATCH",
+      "conviction": 42.32,
+      "strong_streak": 0,
+      "micro_streak": 0,
+      "weak_streak": 15,
+      "observations": 15,
+      "peak_conviction": 42.32,
+      "smart_money_confirmed": false,
+      "execution_ok": true,
+      "flags": {
+        "building": false,
+        "strong": false,
+        "confirmed": false,
+        "micro_ready": false,
+        "weak": true
+      },
+      "updated_at_utc": "2026-09-28T04:38:18.695847+00:00"
+    },
+    {
+      "symbol": "BNBUSDT",
+      "previous_state": "WATCH",
+      "state": "WATCH",
+      "conviction": 35.73,
+      "strong_streak": 0,
+      "micro_streak": 0,
+      "weak_streak": 15,
+      "observations": 15,
+      "peak_conviction": 35.73,
+      "smart_money_confirmed": true,
+      "execution_ok": true,
+      "flags": {
+        "building": false,
+        "strong": false,
+        "confirmed": false,
+        "micro_ready": false,
+        "weak": true
+      },
+      "updated_at_utc": "2026-09-28T04:38:18.695847+00:00"
+    },
+    {
+      "symbol": "SUIUSDT",
+      "previous_state": "WATCH",
+      "state": "WATCH",
+      "conviction": 34.69,
+      "strong_streak": 0,
+      "micro_streak": 0,
+      "weak_streak": 15,
+      "observations": 15,
+      "peak_conviction": 34.69,
+      "smart_money_confirmed": false,
+      "execution_ok": true,
+      "flags": {
+        "building": false,
+        "strong": false,
+        "confirmed": false,
+        "micro_ready": false,
+        "weak": true
+      },
+      "updated_at_utc": "2026-09-28T04:38:18.695847+00:00"
+    },
+    {
+      "symbol": "BANKUSDT",
+      "previous_state": "WATCH",
+      "state": "WATCH",
+      "conviction": 25.53,
+      "strong_streak": 0,
+      "micro_streak": 0,
+      "weak_streak": 15,
+      "observations": 15,
+      "peak_conviction": 25.53,
+      "smart_money_confirmed": false,
+      "execution_ok": false,
+      "flags": {
+        "building": false,
+        "strong": false,
+        "confirmed": false,
+        "micro_ready": false,
+        "weak": true
+      },
+      "updated_at_utc": "2026-09-28T04:38:18.695847+00:00"
+    }
+  ],
+  "execution_policy": {
+    "automatic_live_execution": false,
+    "manual_review_required": true,
+    "paper_and_forward_first": true
+  }
+}
